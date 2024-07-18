@@ -4,7 +4,7 @@
 <div class="slogan container container--90">
     <div class="slogan--item">
         <h1>
-            Zacznij pomagać!<br />
+            Zacznij pomagać!<br/>
             Oddaj niechciane rzeczy w zaufane ręce
         </h1>
     </div>
@@ -16,13 +16,15 @@
         <div class="stats--item">
             <em>10</em>
             <h3>Oddanych worków</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum tempora!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
+                tempora!</p>
         </div>
 
         <div class="stats--item">
             <em>5</em>
             <h3>Przekazanych darów</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas quam.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
+                quam.</p>
         </div>
 
     </div>
@@ -60,10 +62,13 @@
 <section id="about-us" class="about-us">
     <div class="about-us--text">
         <h2>O nas</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero optio esse quisquam illo omnis.</p>
-        <img src="images/signature.svg" class="about-us--text-signature" alt="Signature" />
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
+            optio esse quisquam illo omnis.</p>
+        <img src="<c:url value="resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
     </div>
-    <div class="about-us--image"><img src="images/about-us.jpg" alt="People in circle" /></div>
+    <div class="about-us--image"><<c:url value="resources/images/about-us.jpg"/>" alt="People in circle" />
+    </div>
+
 </section>
 
 <section id="help" class="help">
