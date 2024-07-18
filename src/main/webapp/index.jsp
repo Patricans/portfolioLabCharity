@@ -101,14 +101,9 @@
                     <div class="title">Fundacja “Bez domu”</div>
                     <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
                 </div>
-
             </li>
-
         </ul>
-
-
     </div>
-
 </section>
 
 <%@ include file="footer.jsp" %>
