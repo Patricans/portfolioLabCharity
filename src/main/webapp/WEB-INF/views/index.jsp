@@ -3,29 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ include file="header.jsp" %>
-
-
-<div class="slogan container container--90">
-    <div class="slogan--item">
-        <h1>
-            Zacznij pomagać!<br/>
-            Oddaj niechciane rzeczy w zaufane ręce
-        </h1>
-    </div>
-</div>
-</header>
-
 <section id="stats" class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>10</em>
+            <em>${donationsSum ? donationsSum : "0" }</em>
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                 tempora!</p>
         </div>
 
         <div class="stats--item">
-            <em>5</em>
+            <em>${donationsCount}</em>
             <h3>Przekazanych darów</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
