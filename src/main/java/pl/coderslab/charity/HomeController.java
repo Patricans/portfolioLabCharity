@@ -18,7 +18,7 @@ public class HomeController {
     private DonationRepository donationRepository;
     @RequestMapping("/")
     public String homeAction(Model model){
-        model.addAttribute("institutions", institutionRepository.findAll() );
+        model.addAttribute("institutions", institutionRepository.findAll());
         model.addAttribute("donationsSum", donationRepository.findDonationSum());
         model.addAttribute("donationsCount", donationRepository.count());
         model.addAttribute("donation", new Donation());

@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="bs" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ include file="header.jsp" %>
 
 <div class="slogan container container--90">
@@ -78,7 +79,7 @@
             </div>
 
             <!-- STEP 2 -->
-            <div data-step="2" class ="divStep">
+            <div data-step="2" class="divStep">
                 <h3>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</h3>
                 <spring:bind path="quantity">
                     <div class="form-group form-group--inline">
@@ -95,37 +96,22 @@
             </div>
 
 
-            <!-- STEP 4 -->
-            <div data-step="3" class ="divStep">
+            <!-- STEP 3 -->
+            <div data-step="3" class="divStep">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="radio" name="organization" value="old"/>
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title">Fundacja “Bez domu”</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc dla osób nie posiadających miejsca
-                    zamieszkania
-                  </div>
-                </span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <input type="radio" name="organization" value="old"/>
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title">Fundacja “Dla dzieci"</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
-                    życiowej.
-                  </div>
-                </span>
-                    </label>
-                </div>
+                <c:forEach items="${institutions}" var="institution">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <input type="radio" name="organization" value="${institution.id}"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                            <div class="title">${institution.name}</div>
+                            <div class="subtitle">Cel i misja: ${institution.description}</div>
+                        </span>
+                        </label>
+                    </div>
+                </c:forEach>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
@@ -133,8 +119,8 @@
                 </div>
             </div>
 
-            <!-- STEP 5 -->
-            <div data-step="4" class ="divStep">
+            <!-- STEP 4 -->
+            <div data-step="4" class="divStep">
                 <h3>Podaj adres oraz termin odbioru rzecz przez kuriera:</h3>
 
                 <div class="form-section form-section--columns">
@@ -185,8 +171,8 @@
                 </div>
             </div>
 
-            <!-- STEP 6 -->
-            <div data-step="5" class ="divStep">
+            <!-- STEP 5 -->
+            <div data-step="5" class="divStep">
                 <h3>Podsumowanie Twojej darowizny</h3>
 
                 <div class="summary">
@@ -241,18 +227,18 @@
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-    $('button.next-step').click(function(){
+    $('button.next-step').click(function () {
         var div = $(this).closest('.divStep');
-        var step = 0+$(div).data('step');
+        var step = 0 + $(div).data('step');
         step += 1;
-        $('div[data-step=' +step+ ']').addClass('active');
+        $('div[data-step=' + step + ']').addClass('active');
         $(div).removeClass('active');
     });
-    $('button.prev-step').click(function(){
+    $('button.prev-step').click(function () {
         var div = $(this).closest('.divStep');
-        var step = 0+$(div).data('step');
+        var step = 0 + $(div).data('step');
         step -= 1;
-        $('div[data-step=' +step+ ']').addClass('active');
+        $('div[data-step=' + step + ']').addClass('active');
         $(div).removeClass('active');
     });
 </script>
