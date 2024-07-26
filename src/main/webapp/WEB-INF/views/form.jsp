@@ -118,51 +118,88 @@
                     <button type="button" class="btn next-step">Dalej</button>
                 </div>
             </div>
+            <!-- public class Donation {
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private int id;
+            private int quantity;
+            @ManyToMany
+            private List<Category> categories;
+            @ManyToOne
+            private Institution institution;
+            private String street;
+            private String city;
+            private String zipCode;
+            private LocalDate pickUpDate;
+            private LocalTime pickUpTime;
+            private String pickUpComment;
+
+            <spring:bind path="quantity">
+                <div class="form-group form-group--inline">
+                <label>
+                Liczba 60l worków:
+                <form:input type="number" path="quantity" step="1" min="1"/>
+                </label>
+                </div>
+            </spring:bind> -->
+
 
             <!-- STEP 4 -->
             <div data-step="4" class="divStep">
                 <h3>Podaj adres oraz termin odbioru rzecz przez kuriera:</h3>
 
                 <div class="form-section form-section--columns">
+
+                    <spring:bind path="street">
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="address"/> </label>
+                            <label> Ulica <form:input type="text" path="street"/> </label>
                         </div>
+                        </spring:bind>
 
-                        <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city"/> </label>
-                        </div>
+                        <spring:bind path="city">
+                            <div class="form-group form-group--inline">
+                                <label> Miasto <form:input type="text" path="city"/> </label>
+                            </div>
+                        </spring:bind>
 
-                        <div class="form-group form-group--inline">
-                            <label>
-                                Kod pocztowy <input type="text" name="postcode"/>
-                            </label>
-                        </div>
+                        <spring:bind path="zipCode">
+                            <div class="form-group form-group--inline">
+                                <label>
+                                    Kod pocztowy <form:input type="text" path="zipCode"/>
+                                </label>
+                            </div>
+                        </spring:bind>
 
-                        <div class="form-group form-group--inline">
-                            <label>
-                                Numer telefonu <input type="phone" name="phone"/>
-                            </label>
-                        </div>
+                        <spring:bind path="phoneNumber">
+                            <div class="form-group form-group--inline">
+                                <label>
+                                    Numer telefonu <form:input type="phone" path="phoneNumber"/>
+                                </label>
+                            </div>
+                        </spring:bind>
                     </div>
-
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
+                        <spring:bind path="pickUpDate">
+                            <div class="form-group form-group--inline">
+                                <label> Data <form:input type="date" path="pickUpDate"/> </label>
+                            </div>
+                        </spring:bind>
+                        <spring:bind path="pickUpTime">
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="data"/> </label>
+                            <label> Godzina <form:input type="time" path="pickUpTime"/> </label>
                         </div>
-
-                        <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time"/> </label>
-                        </div>
-
+                        </spring:bind>
+                        <spring:bind path="pickUpComment">
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="more_info" rows="5"></textarea>
+                                <form:textarea path="pickUpComment" rows="5"></form:textarea>
                             </label>
                         </div>
+                        </spring:bind>
                     </div>
                 </div>
                 <div class="form-group form-group--buttons">
