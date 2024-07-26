@@ -14,3 +14,11 @@ DELETE FROM institutions;
 
 INSERT INTO institutions (`name`,`description`) values
                                                     ('Fundacja "Monster Energy Drink"','Pomoc dzieciom bez energii.');
+
+ubrania, które nadają się do ponownego użycia
+ubrania, do wyrzucenia
+    zabawki
+książki
+inne
+
+INSERT INTO categories (name) values ('ubrania, które nadają się do ponownego użycia'),('ubrania, do wyrzucenia'),('zabawki'),('książki'),('inne');
