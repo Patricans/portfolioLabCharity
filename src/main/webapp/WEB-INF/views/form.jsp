@@ -188,17 +188,17 @@
                             </div>
                         </spring:bind>
                         <spring:bind path="pickUpTime">
-                        <div class="form-group form-group--inline">
-                            <label> Godzina <form:input type="time" path="pickUpTime"/> </label>
-                        </div>
+                            <div class="form-group form-group--inline">
+                                <label> Godzina <form:input type="time" path="pickUpTime"/> </label>
+                            </div>
                         </spring:bind>
                         <spring:bind path="pickUpComment">
-                        <div class="form-group form-group--inline">
-                            <label>
-                                Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" rows="5"></form:textarea>
-                            </label>
-                        </div>
+                            <div class="form-group form-group--inline">
+                                <label>
+                                    Uwagi dla kuriera
+                                    <form:textarea path="pickUpComment" rows="5"></form:textarea>
+                                </label>
+                            </div>
                         </spring:bind>
                     </div>
                 </div>
@@ -219,15 +219,13 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
-                                >
+                                      id="coOddano">4 worki ubrań w dobrym stanie dla dzieci</span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
-                                >
+                                      id="gdzieOddano"> Dla fundacji "Mam marzenie" w Warszawie</span>
                             </li>
                         </ul>
                     </div>
@@ -236,19 +234,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="summary-street">Prosta 51</li>
+                                <li id="summary-city">Warszawa</li>
+                                <li id="summary-zipCode">99-098</li>
+                                <li id="summary-phoneNumber">123 456 789</li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="summary-date">13/12/2018</li>
+                                <li id="summary-time">15:40</li>
+                                <li id="summary-comments">Brak uwag</li>
                             </ul>
                         </div>
                     </div>
@@ -270,6 +268,24 @@
         step += 1;
         $('div[data-step=' + step + ']').addClass('active');
         $(div).removeClass('active');
+        if (step === 5) {
+            var oddaneRzeczy = $.map($('input[name=categories]:checked'), function (e) {
+                return $(e).siblings('span.description').text();
+            }).join('. ');
+            var ileOddal = $('input#quantity').val();
+            var nazwaFundacji = $.map($('input[name=organization]:checked'), function (e) {
+                return $(e).parent().find('.description .title').text();
+            }) [0];
+            $('span#coOddano').text(ileOddal + ' worki ' + oddaneRzeczy);
+            $('span#gdzieOddano').text(nazwaFundacji);
+            $('li#summary-street').text($('input#street').val());
+            $('li#summary-city').text($('input#city').val());
+            $('li#summary-zipCode').text($('input#zipCode').val());
+            $('li#summary-phoneNumber').text($('input#phoneNumber').val());
+            $('li#summary-date').text($('input#pickUpDate').val());
+            $('li#summary-time').text($('input#pickUpTime').val());
+            $('li#summary-comments').text($('textarea#pickUpComment').val());
+        }
     });
     $('button.prev-step').click(function () {
         var div = $(this).closest('.divStep');
