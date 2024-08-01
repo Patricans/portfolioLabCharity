@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="bs" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ include file="header.jsp" %>
@@ -56,7 +55,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form action="form-confirmation.html" method="post" modelAttribute="donation">
+        <form:form action="/oddaj" method="post" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active divStep">
                 <h3>Zaznacz co chcesz oddać:</h3>
@@ -118,32 +117,6 @@
                     <button type="button" class="btn next-step">Dalej</button>
                 </div>
             </div>
-            <!-- public class Donation {
-            @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
-            private int id;
-            private int quantity;
-            @ManyToMany
-            private List<Category> categories;
-            @ManyToOne
-            private Institution institution;
-            private String street;
-            private String city;
-            private String zipCode;
-            private LocalDate pickUpDate;
-            private LocalTime pickUpTime;
-            private String pickUpComment;
-
-            <spring:bind path="quantity">
-                <div class="form-group form-group--inline">
-                <label>
-                Liczba 60l worków:
-                <form:input type="number" path="quantity" step="1" min="1"/>
-                </label>
-                </div>
-            </spring:bind> -->
-
-
             <!-- STEP 4 -->
             <div data-step="4" class="divStep">
                 <h3>Podaj adres oraz termin odbioru rzecz przez kuriera:</h3>
@@ -271,7 +244,7 @@
         if (step === 5) {
             var oddaneRzeczy = $.map($('input[name=categories]:checked'), function (e) {
                 return $(e).siblings('span.description').text();
-            }).join('. ');
+            }).join(', ');
             var ileOddal = $('input#quantity').val();
             var nazwaFundacji = $.map($('input[name=organization]:checked'), function (e) {
                 return $(e).parent().find('.description .title').text();

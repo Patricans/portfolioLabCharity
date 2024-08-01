@@ -22,3 +22,7 @@ książki
 inne
 
 INSERT INTO categories (name) values ('ubrania, które nadają się do ponownego użycia'),('ubrania, do wyrzucenia'),('zabawki'),('książki'),('inne');
+
+DESCRIBE donations;
+
+SELECT * FROM donations;
