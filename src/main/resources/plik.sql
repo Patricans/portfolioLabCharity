@@ -14,6 +14,8 @@ DELETE FROM institutions;
 
 INSERT INTO institutions (`name`,`description`) values
                                                     ('Fundacja "Monster Energy Drink"','Pomoc dzieciom bez energii.');
+INSERT INTO institutions (`name`,`description`) values
+    ('Fundacja "Mleczna Kanapka"','Mleczna moc dla dzieci');
 
 ubrania, które nadają się do ponownego użycia
 ubrania, do wyrzucenia
@@ -26,3 +28,4 @@ INSERT INTO categories (name) values ('ubrania, które nadają się do ponownego
 DESCRIBE donations;
 
 SELECT * FROM donations;
+SELECT * FROM messages;

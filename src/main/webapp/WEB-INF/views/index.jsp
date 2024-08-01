@@ -1,11 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ include file="header.jsp" %>
 
 <div class="slogan container container--90">
     <div class="slogan--item">
         <h1>
-            Zacznij pomagać!<br />
+            Zacznij pomagać!<br/>
             Oddaj niechciane rzeczy w zaufane ręce
         </h1>
     </div>
@@ -105,5 +107,24 @@
         </ul>
     </div>
 </section>
+<footer>
+    <div class="contact" id="contact">
+        <h2>Skontaktuj się z nami</h2>
+        <h3>Formularz kontaktowy</h3>
+        <form:form class="form--contact" action="/kontakt" modelAttribute="contactForm">
+            <div class="form-group form-group--50">
+                <form:input type="text" path="name" placeholder="Imię"/>
+            </div>
+            <div class="form-group form-group--50">
+                <form:input type="text" path="surname" placeholder="Nazwisko"/>
+            </div>
+
+            <div class="form-group">
+                <form:textarea path="message" placeholder="Wiadomość" rows="1"/>
+            </div>
+
+            <button class="btn" type="submit">Wyślij</button>
+        </form:form>
+    </div>
 
 <%@ include file="footer.jsp" %>

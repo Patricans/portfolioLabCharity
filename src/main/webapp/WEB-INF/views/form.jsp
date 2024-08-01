@@ -268,4 +268,5 @@
         $(div).removeClass('active');
     });
 </script>
+<footer>
 <%@ include file="footer.jsp" %>
