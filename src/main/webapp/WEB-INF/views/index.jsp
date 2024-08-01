@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <a href="#" class="btn btn--large">Załóż konto</a>
+    <a href="/rejestracja" class="btn btn--large">Załóż konto</a>
 </section>
 
 <section id="about-us" class="about-us">

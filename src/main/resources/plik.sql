@@ -29,3 +29,4 @@ DESCRIBE donations;
 
 SELECT * FROM donations;
 SELECT * FROM messages;
+SELECT * FROM users;

@@ -26,8 +26,6 @@
     <c:if test="${not empty localError}">
         <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
     </c:if>
-    <label for="${name}" class="form-label"> ${label} <c:if test="${required}"><span
-            class="required">*</span></c:if>
         <c:choose>
             <c:when test="${not empty fn:trim(localError)}">
                 <springForm:input path="${name}" type="${type}" placeholder="${placeholder}" id="${name}"
@@ -45,6 +43,5 @@
                                   class="form-control ${cssclass}" readonly="${readonly}"/>
             </c:otherwise>
         </c:choose>
-    </label>
     </div>
 </spring:bind>
